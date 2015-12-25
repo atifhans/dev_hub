@@ -18,11 +18,11 @@
       <%= f.label :password_confirmation, "Confirmation" %>
       <%= f.password_field :password_confirmation, class: 'form-control' %>
 
-      <% if is_admin? %>
+      
         <%= f.label :admin, "Make admin" %>
         <%= f.radio_button :admin,  true %><label>Yes</label>
         <%= f.radio_button :admin, false %><label>No</label>
-      <% end %>
+
 
       <%= f.submit "Save changes", class: "btn btn-primary" %>
     <% end %>
