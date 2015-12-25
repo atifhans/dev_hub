@@ -3,9 +3,11 @@
 <h2> Control all your devices from here! </h2>
 
 <div class="list-group">
+	<% if !logged_in? %>
 	<%= link_to "Sign up now!", signup_path, class: "btn btn-lg btn-primary" %>
-	<h4> or </h4>
-  <a href="#" class="btn btn-lg btn-primary">Login</a>
+		<h4> or </h4>
+  	<%= link_to "Log in", login_path, class: "btn btn-lg btn-primary" %>
+  <% end %>
 </div>
 
 </div>
