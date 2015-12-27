@@ -1,0 +1,14 @@
+<li id="device-<%= device.id %>">
+  <%= link_to gravatar_for(device.user, size: 50), device.user %>
+  <span class="user"><%= link_to device.user.name, device.user %></span>
+  <span class="content"><%= device.type_dev %></span>
+  <span class="content"><%= device.status %></span>
+  <span class="content"><%= device.log %></span>
+  <span class="timestamp">
+    Posted <%= time_ago_in_words(device.created_at) %> ago.
+    <% if current_user?(device.user) %>
+      <%= link_to "delete", device, method: :delete,
+                                    data: { confirm: "You sure?" } %>
+    <% end %>
+  </span>
+</li>

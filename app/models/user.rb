@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  has_many :devices, dependent: :destroy
   attr_accessor :remember_token
   before_save   :downcase_email
   validates :name,  presence: true, length: { maximum: 50 }
@@ -29,6 +30,11 @@ class User < ActiveRecord::Base
   # Forgets a user.
   def forget
     update_attribute(:remember_digest, nil)
+  end
+
+  # Defines a proto-feed.
+  def feed
+    Device.where("user_id = ?", id)
   end
 
   # Returns true if the given token matches the digest.

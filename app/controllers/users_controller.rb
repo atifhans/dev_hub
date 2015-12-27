@@ -23,6 +23,7 @@ class UsersController < ApplicationController
 
   def show
   	@user = User.find(params[:id])
+    @devices = @user.devices.paginate(page: params[:page])
   end
 
   def update
